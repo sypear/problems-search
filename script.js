@@ -24,7 +24,7 @@ function addItem(item) {
     liEl.classList.add('border-b', 'border-stone-200', 'border-solid', 'hover:cursor-pointer', 'hover:font-bold');
 
     const aEl = document.createElement('a');
-    aEl.classList.add('block', 'py-3', 'px-10');
+    aEl.classList.add('block', 'py-3', 'px-8');
     aEl.setAttribute('href', `https://school.programmers.co.kr/learn/courses/30/lessons/${item.id}`);
     aEl.setAttribute('target', '_blank');
     aEl.textContent = item.title;

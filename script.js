@@ -66,6 +66,7 @@ function search() {
 }
 
 function clear() {
+    $search.value = '';
     $search.focus();
     searchResults = [];
     $problemList.innerHTML = '';

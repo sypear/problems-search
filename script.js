@@ -6,7 +6,8 @@ let problmes = [];
 let searchValue = null;
 let searchRegExp = null;
 let searchResults = [];
-let levelColor = ['bg-blue-200', 'bg-cyan-200', 'bg-lime-300', 'bg-yellow-300', 'bg-rose-300', 'bg-violet-300'];
+let levelBgColor = ['bg-blue-200', 'bg-sky-300', 'bg-green-500', 'bg-yellow-300', 'bg-rose-400', 'bg-violet-500'];
+let levelTextColor = ['text-black', 'text-black', 'text-white', 'text-black', 'text-white', 'text-white'];
 
 async function getData() {
     const response = await fetch('https://school.programmers.co.kr/api/v1/school/challenges/?page=1&perPage=20&languages[]=java&order=recent');
@@ -27,12 +28,15 @@ function addItem(item) {
     aEl.classList.add('block', 'py-3', 'px-8');
     aEl.setAttribute('href', `https://school.programmers.co.kr/learn/courses/30/lessons/${item.id}`);
     aEl.setAttribute('target', '_blank');
-    aEl.textContent = item.title;
 
     const strongEl = document.createElement('strong');
     strongEl.textContent = item.level;
-    strongEl.classList.add(`${levelColor[item.level]}`, 'ml-2', 'px-1', 'text-sm');
+    strongEl.classList.add(`${levelBgColor[item.level]}`, `${levelTextColor[item.level]}`, 'mr-2', 'px-1', 'text-sm');
     aEl.appendChild(strongEl);
+
+    const spanEl = document.createElement('span');
+    spanEl.textContent = item.title;
+    aEl.appendChild(spanEl);
 
     liEl.appendChild(aEl);
 
@@ -40,8 +44,8 @@ function addItem(item) {
 }
 
 function search() {
-    // searchResults = [];
-    // $problemList.innerHTML = '';
+    searchResults = [];
+    $problemList.innerHTML = '';
 
     if (!$search.value) {
         return;

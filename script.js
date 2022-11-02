@@ -33,8 +33,6 @@ async function getData() {
             }
         })
 
-    console.log(problmes);
-
     return problmes;
 }
 

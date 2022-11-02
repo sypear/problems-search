@@ -6,7 +6,7 @@ let problmes = [];
 let searchValue = null;
 let searchRegExp = null;
 let searchResults = [];
-let levelColor = ['bg-red-200', 'bg-amber-300', 'bg-lime-300', 'bg-blue-300', 'bg-violet-300', 'bg-rose-400'];
+let levelColor = ['bg-blue-200', 'bg-cyan-200', 'bg-lime-300', 'bg-yellow-300', 'bg-rose-300', 'bg-violet-300'];
 
 async function getData() {
     const response = await fetch('https://school.programmers.co.kr/api/v1/school/challenges/?page=1&perPage=20&languages[]=java&order=recent');
@@ -40,8 +40,8 @@ function addItem(item) {
 }
 
 function search() {
-    searchResults = [];
-    $problemList.innerHTML = '';
+    // searchResults = [];
+    // $problemList.innerHTML = '';
 
     if (!$search.value) {
         return;

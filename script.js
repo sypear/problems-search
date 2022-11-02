@@ -18,6 +18,24 @@ async function getData() {
         const {result} = await problmesResponse.json();
         problmes.push(...result);
     }
+
+    problmes
+        .sort((a, b) => a.level - b.level)
+        .sort((a, b) => {
+            if (a.level === b.level) {
+                if (a.title < b.title) {
+                    return -1;
+                } else if (a.title > b.title) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        })
+
+    console.log(problmes);
+
+    return problmes;
 }
 
 function addItem(item) {
